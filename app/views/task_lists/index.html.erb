@@ -1,0 +1,12 @@
+<h1>Your Task Lists</h1>
+
+<%= render 'form', task_list: @task_list %>
+
+<ul>
+  <% @task_lists.each do |task_list| %>
+    <li>
+      <%=link_to task_list.name, task_list_path(task_list)%>
+      <%= link_to 'Delete' %>
+    </li>
+  <% end %>
+</ul>

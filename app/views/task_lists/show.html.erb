@@ -1,0 +1,19 @@
+<h1> <%= @task_list.name%> </h1>
+
+<h2>Tasks</h2>
+
+<%= render 'tasks/form', task: @new_task %>
+
+<ul>
+  <% @task_list.tasks.each do |task| %>
+    <li>
+      <%= check_box_tag(:task) %>
+      <%= label_tag(:task, task.title) %>
+
+      <% if task.persisted? %>
+        <%= link_to 'Delete', task_list_task_path(@task_list, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      
+    </li>
+  <% end %>
+</ul>
