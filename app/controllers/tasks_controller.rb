@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :set_task_list
+  before_action :set_task_list
   before_action :set_task, only: [:edit, :update, :destroy]
 
   def create
@@ -9,6 +9,10 @@ class TasksController < ApplicationController
     else
       render "task_lists/show", status: :unprocessable_entity
     end
+  end
+
+  def new
+    @new_task = Task.new 
   end
 
   def edit

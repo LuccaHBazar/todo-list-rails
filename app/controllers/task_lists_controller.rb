@@ -1,5 +1,5 @@
 class TaskListsController < ApplicationController
-    before_action :set_task_list, only: [:show]
+    before_action :set_task_list, only: [:show, :destroy]
 
     def index
         @task_lists = TaskList.all
@@ -7,6 +7,7 @@ class TaskListsController < ApplicationController
     end
 
     def show
+        @new_task = Task.new
     end
 
     
@@ -17,6 +18,11 @@ class TaskListsController < ApplicationController
         else
             render :new, status: :unprocessable_entity 
         end
+    end
+
+    def destroy
+        @task_list.destroy
+        redirect_to "#index"
     end
 
     private
