@@ -8,8 +8,7 @@
   <% @task_list.tasks.each do |task| %>
     <li>
       <div>
-        <%= check_box_tag(task.title) %>
-        <%= label_tag(task.title, task.title) %>
+        <%= render 'tasks/checkbox',  task: task %>
         <%= button_to "Delete", task_list_task_delete_path(@task_list, task.id), method: :delete, data: {turbo_confirm: "Are you sure?"}%>      
       </div>
     </li>

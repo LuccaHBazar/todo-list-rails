@@ -1,0 +1,5 @@
+<%= form_with model: task, url: task_list_task_path(@task_list, task), method: :patch, local: true do |f| %>
+  <%= f.label :completed %>:
+  <%= f.check_box :completed %><br />
+  <%= f.submit %>
+<% end %>
